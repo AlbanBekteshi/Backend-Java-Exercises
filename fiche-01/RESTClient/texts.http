@@ -1,0 +1,50 @@
+@baseUrl = http://localhost:8080/texts
+
+### View all texts : GET texs
+GET {{baseUrl}}
+
+### Add a text : POST texts
+POST {{baseUrl}}
+Content-Type: application/json
+
+{    
+    "content":"premier text",
+    "level":"easy"
+}
+
+### Add another text : POST texts
+POST {{baseUrl}}
+Content-Type: application/json
+
+{    
+    "content":"deuxieme text",
+    "level":"medium"
+}
+
+### Add another easy text : POST texts
+POST {{baseUrl}}
+Content-Type: application/json
+
+{    
+    "content":"easy deuxieme text",
+    "level":"easy"
+}
+
+### Update text with ID == 2 : PUT text/{id}
+
+PUT {{baseUrl}}/2 
+Content-Type: application/json
+
+{
+    "content":"deuxieme text update",
+    "level":"hard"
+}
+
+### Delete the text with ID == 2 : DELETE texts/{id}
+DELETE {{baseUrl}}/2
+
+### Read text with ID == 1 : GET texts/{id}
+GET {{baseUrl}}/1
+
+### View all films with duration of minimum 120 minutes : GET films?minimum-duration=value
+GET {{baseUrl}}?select-level=easy

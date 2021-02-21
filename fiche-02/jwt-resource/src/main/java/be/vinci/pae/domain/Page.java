@@ -4,45 +4,49 @@ import java.util.Arrays;
 
 public class Page {
 	private int id;
-	private String titre;
-	private String contenu;
-	private User auteur;
-	private final static String[] POSSIBLE_STATUTS = {"hidden","published"};
-	private String statut;
-	
+	private String title;
+	private String uri;
+	private String content;
+	private final static String[] POSSIBLE_PUBLICATION_STATUSES = {"hidden","published"};
+	private String publicationStatus;
+	private PublicUser author;
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getTitre() {
-		return titre;
+	public String getTitle() {
+		return title;
 	}
-	public void setTitre(String titre) {
-		this.titre = titre;
+	public void setTitle(String title) {
+		this.title = title;
 	}
-	public String getContenu() {
-		return contenu;
+	public String getUri() {
+		return uri;
 	}
-	public void setContenu(String contenu) {
-		this.contenu = contenu;
+	public void setUri(String uri) {
+		this.uri = uri;
 	}
-	public User getAuteur() {
-		return auteur;
+	public String getContent() {
+		return content;
 	}
-	
-	public void setAuteur(User auteur) {
-		this.auteur = auteur;
+	public void setContent(String content) {
+		this.content = content;
 	}
-	public String getStatut() {
-		return statut;
+	public String getPublicationStatus() {		
+		return publicationStatus;
 	}
-	
-	public void setStatut(String statut) {
-		this.statut = Arrays.stream(POSSIBLE_STATUTS).filter(possibleStatuts -> possibleStatuts.equals(statut)).findFirst().orElse(null);	
+	public void setPublicationStatus(String publicationStatus) {
+		this.publicationStatus = Arrays.stream(POSSIBLE_PUBLICATION_STATUSES).filter(possibleStatus -> possibleStatus.equals(publicationStatus)).findFirst()
+				.orElse(null);		
 	}
-	
+	public PublicUser getAuthor() {
+		return author;
+	}
+	public void setAuthor(PublicUser author) {
+		this.author = author;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -63,8 +67,11 @@ public class Page {
 			return false;
 		return true;
 	}
-	
-	
+	@Override
+	public String toString() {
+		return "Page [id=" + id + ", title=" + title + ", uri=" + uri + ", content=" + content + ", publicationStatus="
+				+ publicationStatus + ", author=" + author + "]";
+	}
 	
 	
 
